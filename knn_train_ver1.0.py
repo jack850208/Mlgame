@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 
 # Code bellow:
 
-pickle_file_path='/mnt/chromeos/removable/Linux_Mint/MLGame-master/games/arkanoid/log/*.pickle'
+pickle_file_path=r'C:\Users\AIC\Desktop\MLGame-master\games\arkanoid\log\ml_EASY_1_2020-11-11_09-00-55.pickle'
 file_list = glob.glob(pickle_file_path)
 
 data_list = pickle.load(open(file_list[0],'rb'))
@@ -40,9 +40,11 @@ for index in  range(0, len(data_list['ml']['scene_info'])):
 
 ball_pos_array = np.array(ball_position) # convert to numpy type array
 platform_pos_array = np.array(platform_position) # convert to numpy type array
+platform_next_pos_array = np.array(platform_position[1:])
 
 # Combine the vector you create above that you would like to train later 
 knn_eigen_vector = np.hstack((ball_pos_array, platform_pos_array))
+
 
 
 
