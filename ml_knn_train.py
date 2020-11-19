@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 
 # Code bellow:
 
-pickle_file_path='/mnt/chromeos/removable/Linux_Mint/MLGame-master/games/arkanoid/log/*.pickle'
+pickle_file_path=r'C:\Users\AIC\Desktop\MLGame-master\games\arkanoid\log\ml_EASY_1_2020-11-11_09-00-55.pickle'
 file_list = glob.glob(pickle_file_path)
 
 data_list = pickle.load(open(file_list[0],'rb'))
@@ -52,4 +52,7 @@ data_train.fit(knn_eigen_vector, knn_eigen_label)
 
 print (data_train.predict([[34,393]]))
 
+
+model_name = "KNN_model.sav"
+pickle.dump(data_train, open(model_name, 'wb'))
 
